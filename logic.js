@@ -34,11 +34,13 @@ $(".restart-button").click(function () {
 });
 
 $(".btn").click(function () {
-  let userColor = $(this).attr("id");
-  userPattern.push(userColor);
-  playAudio(userColor);
-  clickAnimation(userColor);
-  checkAnswer(userPattern.length - 1);
+  if (isStarted) {
+    let userColor = $(this).attr("id");
+    userPattern.push(userColor);
+    playAudio(userColor);
+    clickAnimation(userColor);
+    checkAnswer(userPattern.length - 1);
+  }
 });
 
 function playAudio(color) {
